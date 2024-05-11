@@ -1,5 +1,3 @@
-import 'dart:ui_web';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -26,14 +24,43 @@ class _MyAppState extends State<MyApp> {
           title: const Text('App Title'),
         ),
         body: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              setState(() {
-                buttonName = 'Clicked';
-              });
-            },
-            child: Text(buttonName),
-          ),
+          child: currentIndex == 0
+              ? Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Colors.black45,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.blue,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            buttonName = 'Clicked';
+                          });
+                        },
+                        child: Text(buttonName),
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.blue,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            buttonName = 'Clicked';
+                          });
+                        },
+                        child: Text(buttonName),
+                      ),
+                    ],
+                  ),
+                )
+              : Image.asset('image/download.jpg'),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
